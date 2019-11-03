@@ -2,7 +2,7 @@
   <div>
     <div class="title">周末去哪儿</div>
     <ul>
-      <li class="item border-bottom" v-for="(item,index) of recommendList" :key="index">
+      <li class="item border-bottom" v-for="(item,index) of list" :key="index">
         <div class="item-img-wrapper">
           <img class="item-img" :src="item.imgUrl" />
         </div>
@@ -18,32 +18,8 @@
 <script>
 export default {
   name: "HomeWeekend",
-  data: function() {
-    return {
-      recommendList: [
-        {
-          id: "0001",
-          imgUrl:
-            "https://imgs.qunarzz.com/sight/p0/1910/6f/6f3fa8d8f8e14b66a3.water.jpg_200x200_4f294e8c.jpg",
-          title: "观澜山水田园旅游文化园",
-          desc: "观澜山水田园旅游文化园desc"
-        },
-        {
-          id: "0002",
-          imgUrl:
-            "https://imgs.qunarzz.com/sight/p0/1910/6f/6f3fa8d8f8e14b66a3.water.jpg_200x200_4f294e8c.jpg",
-          title: "观澜山水田园旅游文化园",
-          desc: "观澜山水田园旅游文化园desc"
-        },
-        {
-          id: "0003",
-          imgUrl:
-            "https://imgs.qunarzz.com/sight/p0/1910/6f/6f3fa8d8f8e14b66a3.water.jpg_200x200_4f294e8c.jpg",
-          title: "观澜山水田园旅游文化园",
-          desc: "观澜山水田园旅游文化园desc"
-        }
-      ]
-    };
+  props:{
+    list: Array
   }
 };
 </script>
@@ -55,7 +31,6 @@ export default {
   line-height: 0.8rem;
   background: #eee;
   text-indent: 0.2rem;
-  margin-top: 0.2rem;
 }
 
 .item-img-wrapper {
@@ -82,4 +57,4 @@ export default {
     }
   }
 }
-</style>ß
+</style>
