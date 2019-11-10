@@ -7,7 +7,9 @@
       <ul>
         <li class="search-item border-bottom" 
         v-for="item of list"
-        :key="item.id">
+        :key="item.id"
+        @click="handleCityClick(item.name)"
+        >
         {{item.name}}
         </li>
         <li class="search-item border-bottom" v-show="hasNoData">没有找到匹配数据</li>
@@ -28,6 +30,12 @@ export default {
       keyword:'',
       list:[],
       timer:null
+    }
+  },
+  methods:{
+    handleCityClick(name){
+      this.$store.dispatch('changeCity',name);
+      this.$router.push('/');
     }
   },
   computed: {

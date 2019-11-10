@@ -8,7 +8,7 @@
       输入城市/经典/游玩</div>
     <router-link to="/city">
       <div class="header-right">
-        {{this.city}}
+        {{this.$store.state.city}}
         <span class="iconfont down-icon">&#xe6f8;</span>
       </div>
     </router-link>
@@ -16,11 +16,9 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
   name: 'HomeHeader',
-  props:{
-    city:String
-  }
 }
 </script>
 <style lang="stylus" scoped>
@@ -47,7 +45,8 @@ export default {
       border-radius:.1rem;
       color: #ccc;
     .header-right 
-      width :1.24rem;
+      min-width :1.04rem;
+      padding: 0.1rem
       float: right ;
       text-align:center;
       color: #fff
