@@ -3,13 +3,13 @@
     <div class="banner" @click="handleBannerClick"> 
       <img 
       class="banner-img"
-      src="//img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg"/>
+      :src="bannerImg"/>
       <div class="banner-info">
-        <div class="banner-title">北京市东城区景山前街4号</div>
-        <div class="banner-number"><span class="iconfont banner-icon">&#xe70a;</span>39</div>
+        <div class="banner-title">{{this.sightName}}</div>
+        <div class="banner-number"><span class="iconfont banner-icon">&#xe70a;</span>{{this.bannerImgs.length}}</div>
       </div>
     </div>
-    <common-gallery :imgs="imgs" v-show="showGallery" @close="handleGalleryClose"></common-gallery>
+    <common-gallery :imgs="bannerImgs" v-show="showGallery" @close="handleGalleryClose"></common-gallery>
   </div>
 </template>
 
@@ -19,9 +19,13 @@ export default {
   name: 'DetailBanner',
   data(){
     return {
-      imgs:['//img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg'],
       showGallery:false
     }
+  },
+  props:{
+    sightName:String,
+    bannerImg:String,
+    bannerImgs:Array
   },
   methods:{
     handleBannerClick(){
@@ -30,6 +34,9 @@ export default {
     handleGalleryClose(){
       this.showGallery = false;
     }
+  },
+  mounted(){
+    console.log(this.bannerImgs);
   },
   components:{
     CommonGallery

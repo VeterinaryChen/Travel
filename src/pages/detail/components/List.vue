@@ -17,7 +17,7 @@ export default {
   name:'DetailList',
   props:{
     list:Array
-  }
+  },
 }
 </script>
 
